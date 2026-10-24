@@ -1,0 +1,31 @@
+[project]
+name = "air-quality-pipeline"
+version = "0.1.0"
+description = "Real-time air quality monitoring pipeline"
+readme = "README.md"
+authors = [
+    { name = "eduuMP", email = "edumontiano@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.13.5",
+]
+
+[project.scripts]
+airquality = "airquality:main"
+
+[tool.uv.build-backend]
+module-name = "airquality"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
